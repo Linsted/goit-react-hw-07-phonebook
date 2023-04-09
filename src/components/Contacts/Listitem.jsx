@@ -7,7 +7,7 @@ export const ListItem = ({ contact : {name, phone, id}, onClick }) => {
     
     return (
         <Item>
-            <span>{name}</span>
+            <span>{ name.length < 15 ? name :`${name.slice(0, 12)}...`}</span>
             <span>{phone}</span>
             <Button type='button' onClick={()=>onClick(id)}>Delete</Button>
         </Item>

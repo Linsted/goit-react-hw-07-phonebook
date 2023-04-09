@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import { ListItem } from './Listitem';
 import { List } from './Contacts.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 
 export const Contacts = ({contacts}) => {
   
-     
+
     const dispatch = useDispatch();
     
 

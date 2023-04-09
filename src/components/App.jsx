@@ -3,16 +3,27 @@ import { Contacts } from "./Contacts/Contacts"
 import { FilterContacts } from "./FilterContacts/FilterContacts"
 import { PhonebookForm } from "./PhonebookForm/PhonebookForm";
 import { Section } from "./App.styled"
-import { getContactsFromState } from "redux/contactsSlice";
+import { getContactsFromState,getIsLoading, getError } from "redux/contactsSlice";
 import { getFilterState } from "redux/filterSlice";
+import { fetchContacts } from "redux/operations";
 
-
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export const App = () => {
-  
+
+   const dispatch = useDispatch();
   const contacts = useSelector(getContactsFromState);
-  const filter = useSelector(getFilterState);
+  const filter = useSelector(getFilterState); 
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+  
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+  
+
+  
 
 
 
@@ -30,6 +41,7 @@ export const App = () => {
         < FilterContacts
           filter={filter}
         />
+        {isLoading && !error && <b>Request in progress...</b>}
         < Contacts
           contacts={filteredContacts}
           
