@@ -9,7 +9,7 @@ const contactsSlice = createSlice({
 
     reducers: {
         addContact(state, action) {
-            console.log(state)
+            console.log(action.payload);
             const existingContact = state.find(contact => contact.name === action.payload.name);
             if (existingContact) {
                 alert(`${action.payload.name} is already in your list`);
@@ -19,9 +19,9 @@ const contactsSlice = createSlice({
         },
 
         deleteContact(state, action) {
-            return state.filter(contact => contact.id !== action.payload)
+            return state.filter(contact => contact.id !== action.payload);
             
-        }
+        },
         
     }
 });
@@ -29,4 +29,7 @@ const contactsSlice = createSlice({
 export const { addContact,deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 
-export const getContactsFromState = (state) => state.contacts;
+export const getContactsFromState = (state) => {
+    console.log(state)
+    return state.contacts
+};
