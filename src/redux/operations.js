@@ -1,10 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+// import { getContactsFromState } from "./contactsSlice";
 
 
 
 axios.defaults.baseURL = "https://64326724d0127730d2d1c0e5.mockapi.io";
+
+
+
+ 
+
+
 
 
 export const fetchContacts = createAsyncThunk(
@@ -28,7 +36,10 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
     async ({phone, name}, thunkAPI) => {
       
-        console.log(phone, name)
+
+      // const contacts = await useSelector(getContactsFromState);
+
+        // console.log(phone, name)
     try {
       const response = await axios.post("/contacts", { phone, name });
       return response.data;

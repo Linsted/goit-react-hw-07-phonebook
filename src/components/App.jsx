@@ -19,6 +19,8 @@ export const App = () => {
   const error = useSelector(getError);
   
   useEffect(() => {
+
+    console.log(fetchContacts())
     dispatch(fetchContacts());
   }, [dispatch]);
   

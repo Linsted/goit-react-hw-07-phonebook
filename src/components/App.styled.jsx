@@ -1,6 +1,9 @@
 import styled from '@emotion/styled'
 
 export const Section = styled.section`
+display: flex;
+flex-direction: column;
+align-items: center;
 margin-top: 100px;
     width: 400px;
     max-width: 800px;
