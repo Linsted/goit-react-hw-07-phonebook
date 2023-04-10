@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-// import { getContactsFromState } from "./contactsSlice";
+
 
 
 
